@@ -65,4 +65,4 @@ class CustomWebsite(CustomerPortal):
             'pager': pager,
             'default_url': '/my/dashboard',
         })
-        return request.render("website_iframe_dashboard.portal_my_dashboard", values)
+        return request.render("website_iframe.portal_my_dashboard", values)
