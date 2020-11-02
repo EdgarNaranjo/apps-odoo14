@@ -51,6 +51,16 @@ Modify Design List View for all views tree. List Sticky Header.
    3. List Sticky Header
    4. Hover property of list
 
+# System Bugs Management (versión 14.0.0.0.1)
+
+System Bugs Management. Error control and bug fixes in the Odoo Open source platform.
+
+ * versión 14.0.0.0.1
+   
+   1. Offers the ability to keep track of the bug.
+   2. You can see number of bugs assigned to the employee.
+   3. The automatics task generate and contact.
+
 For more information go to the portal: https://github.com/todooweb
 
 For functional or support questions, go to: https://github.com/EdgarNaranjo/apps_todoo.git
