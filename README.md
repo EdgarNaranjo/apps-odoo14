@@ -72,6 +72,27 @@ Creation of the system user and contact from HR Employee with automatics task.
    3. The automatics task generate and contact
    4. To asociated boths with employee
 
+# HR Employee Validation Data  european (SP) (versión 14.2.0.0.2)
+
+Validation Data Employee: DNI/NIE, Code INEN/SS, IBAN for model Europe, Spain (SP).
+
+ * versión 14.0.0.0.1
+   
+   1. Validate bank details
+   2. Validate DNI / NIE
+   3. Validate personal data as mobile, Social security number
+   4. Validate birth date
+
+* versión 14.2.0.0.1
+
+   1. Validate birth date
+   2. Validate the age of an employee
+
+* versión 14.2.0.0.2
+
+   1. Fix validate birth date
+   2. Fix validate the age of an employee
+
 For more information go to the portal: https://github.com/todooweb
 
 For functional or support questions, go to: https://github.com/EdgarNaranjo/apps_todoo.git
