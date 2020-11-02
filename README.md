@@ -40,11 +40,11 @@ Contract Management. Report contract. Review the status of a Contract. Generate 
    4. Workflow of contract and sale order
    5. Management professional category, Educational level, Jobs
 
-# Modify Design List View (versión 13.0.0.0.1)
+# Modify Design List View (versión 14.0.0.0.1)
 
 Modify Design List View for all views tree. List Sticky Header.
 
- * versión 13.0.0.0.1
+ * versión 14.0.0.0.1
    
    1. Fixed header of list view
    2. Sticky Header
