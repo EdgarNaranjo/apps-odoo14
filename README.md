@@ -61,6 +61,17 @@ System Bugs Management. Error control and bug fixes in the Odoo Open source plat
    2. You can see number of bugs assigned to the employee.
    3. The automatics task generate and contact.
 
+# HR Employee to system user (versión 14.0.0.0.1)
+
+Creation of the system user and contact from HR Employee with automatics task.
+
+ * versión 14.0.0.0.1
+   
+   1. Validate email
+   2. The automatics task generate an user
+   3. The automatics task generate and contact
+   4. To asociated boths with employee
+
 For more information go to the portal: https://github.com/todooweb
 
 For functional or support questions, go to: https://github.com/EdgarNaranjo/apps_todoo.git
