@@ -40,11 +40,11 @@ Contract Management. Report contract. Review the status of a Contract. Generate 
    4. Workflow of contract and sale order
    5. Management professional category, Educational level, Jobs
 
-# Modify Design List View (versión 13.0.0.0.1)
+# Modify Design List View (versión 14.0.0.0.1)
 
 Modify Design List View for all views tree. List Sticky Header.
 
- * versión 13.0.0.0.1
+ * versión 14.0.0.0.1
    
    1. Fixed header of list view
    2. Sticky Header
@@ -60,6 +60,17 @@ System Bugs Management. Error control and bug fixes in the Odoo Open source plat
    1. Offers the ability to keep track of the bug.
    2. You can see number of bugs assigned to the employee.
    3. The automatics task generate and contact.
+
+# HR Employee to system user (versión 14.0.0.0.1)
+
+Creation of the system user and contact from HR Employee with automatics task.
+
+ * versión 14.0.0.0.1
+   
+   1. Validate email
+   2. The automatics task generate an user
+   3. The automatics task generate and contact
+   4. To asociated boths with employee
 
 For more information go to the portal: https://github.com/todooweb
 
