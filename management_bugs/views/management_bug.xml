@@ -19,7 +19,7 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='user_id']" position="after">
+            <xpath expr="//field[@name='user_ids']" position="after">
                 <field name="support_id" options='{"no_create": True}'/>
             </xpath>
         </field>
@@ -168,7 +168,6 @@
         <field name="view_id" ref="configuration_bug_search"/>
     </record>
 
-
     <!-- View Form management.bug.assign -->
     <record model="ir.ui.view" id="management_bug_assign_form">
       <field name="name">management.bug.assign.form</field>
@@ -219,8 +218,6 @@
         </form>
       </field>
     </record>
-
-
 
     <!-- View Tree management.bug.assign -->
     <record model="ir.ui.view" id="management_bug_assign_tree">
@@ -305,7 +302,6 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="team_support_search"/>
     </record>
-
 
 
     <!--menu-->

@@ -33,12 +33,16 @@ class ManagementBug(models.Model):
         if glob.glob(route + '/*'):
             list_path = glob.glob(route + '/*.log')
             for name in list_path:
-                separate_name = name.split('/')[-1:]
+                if name.count('\\') > 0:
+                    separate_name = name.split('\\')[-1:]
+                if name.count('/') > 0:
+                    separate_name = name.split('/')[-1:]
                 if separate_name[0] == 'odoo.log':
                     name_route = name
         return name_route
 
     def action_check_all_bugs(self):
+        route = ''
         dict_error = {
             'name': '',
             'code': '',
@@ -115,9 +119,9 @@ class ManagementBug(models.Model):
                             # crear bug
                             create_bug.create(dict_error)
                             dict_error.update(dict_init)
-        # delete new log
-        file_lines.close()
-        os.remove(destination_route)
+            # delete new log
+            file_lines.close()
+            os.remove(destination_route)
 
     def action_claim_bug(self):
         self.ensure_one()
@@ -138,18 +142,14 @@ class ManagementBug(models.Model):
 
     def action_to_assign_bug(self):
         self.ensure_one()
-        ir_model_data = self.env['ir.model.data']
-        try:
-            compose_form_id = ir_model_data.get_object_reference('management_bugs', 'management_bug_assign_form')[1]
-        except ValueError:
-            compose_form_id = False
+        compose_form_id = self.env.ref('management_bugs.management_bug_assign_form')
         return {
             "name": "Transfer or Assign",
             "view_type": "form",
             "view_mode": "form",
             "res_model": "management.bug.assign",
             "type": "ir.actions.act_window",
-            'view_id': compose_form_id,
+            'view_id': compose_form_id.id,
             'target': 'new',
         }
 
@@ -162,11 +162,11 @@ class ConfigurationBug(models.Model):
     active = fields.Boolean('Active')
     route = fields.Char('Route', required=True, help='The path to the file should contain the container folders, Ex: /var/log/..')
 
-    @api.constrains('route')
-    def _add_constrains_fields(self):
-        if self.route:
-            if not self.route == '/var/log/odoo':
-                raise ValidationError("The route of the file should are '/var/log/odoo' .")
+    # @api.constrains('route')
+    # def _add_constrains_fields(self):
+    #     if self.route:
+    #         if not self.route == '/var/log/odoo':
+    #             raise ValidationError("The route of the file should are '/var/log/odoo' .")
 
 
 class ManagementBugAssign(models.TransientModel):
@@ -187,7 +187,7 @@ class ManagementBugAssign(models.TransientModel):
         dict_task = {
             'name': '',
             'project_id': '',
-            'user_id': '',
+            'user_ids': [],
             'support_id': '',
             'description': ''
         }
@@ -217,7 +217,7 @@ class ManagementBugAssign(models.TransientModel):
                                 if list_members:
                                     if self.user_id in list_members:
                                         if self.type_assign == 'agent':
-                                            dict_task['user_id'] = self.user_id.id
+                                            dict_task['user_ids'] = [self.user_id.id]
                                             dict_task['support_id'] = support.id
                         #         else:
                         #             raise UserError(_('The support team does not has a team leader'))
@@ -229,7 +229,7 @@ class ManagementBugAssign(models.TransientModel):
                 if obj_support_id:
                     for obj_support in obj_support_id:
                         dict_task['support_id'] = obj_support.id
-                        dict_task['user_id'] = self.project_id.user_id.id
+                        dict_task['user_ids'] = [self.project_id.user_id.id]
             dict_task['description'] = bug.description
             create_task.create(dict_task)
             bug.state = 'resolved'

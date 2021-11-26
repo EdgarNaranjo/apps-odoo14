@@ -24,7 +24,7 @@
     'description': """
         System Bugs Management. Error control and bug fixes in the Odoo Open source platform
     """,
-    'version': '14.0.0.0.1',
+    'version': '15.0.0.0.1',
     'category': 'Tools',
     'license': 'LGPL-3',
     'author': "ToDOO (www.todooweb.com)",
